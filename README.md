@@ -37,7 +37,7 @@ O projeto será evoluído gradualmente, incorporando novos conceitos e funcional
 1. Clone o repositório:
 
    
-   git clone https://github.com/SEU-USUARIO/controle-financeiro-python.git
+   git clone https://github.com/gracianokaue/controle-financeiro-python
    
 
 2. Acesse a pasta do projeto:
