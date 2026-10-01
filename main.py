@@ -1,34 +1,36 @@
-receitas = 0
-despesas = 0
-saldo = 0
-estado = True
-descricao = ""
+tipos_movimentacao = ("receita", "despesa")
+movimentacoes = []
 
-print("### Controle financeiro ###")
 
-while estado == True:
+def adicionar_movimentacao(tipo, descricao, valor):
+
+    if tipo in tipos_movimentacao and valor > 0 :
+        movimentacao = {
+            "tipo" : tipo,
+            "descricao" : descricao,
+            "valor" : valor
+        }
+        movimentacoes.append(movimentacao)
+  
+    elif tipo not in tipos_movimentacao:
+        print("Tipo de movimentação inválido")
+    else:
+        print("Valor não permitido.")
+    
+
+while True:
     print("""
-        1 - Registrar receita
-        2 - Registrar despesa
-        3 - Consultar saldo
-        4 - Sair 
+        ===========================
+            CONTROLE FINANCEIRO
+        ===========================
         """)
 
-    opcao = int(input("Escolha uma opção: "))
+    print("""
+        1 - Adicionar receita
+        2 - Adicionar despesa
+        3 - Listar movimentações
+        4 - Consultar saldo
+        5 - Sair
+        """)
 
-    if opcao == 1:
-        descricao = input("Descrição: ")
-        receitas += float(input("Valor:  "))
-        print("Receita registrada com sucesso!")
-    elif opcao == 2:
-        descricao = input("Descrição: ")
-        despesas += float(input("Valor:  "))
-        print("Despesa registrada com sucesso!")
-    elif opcao == 3:
-        saldo = receitas - despesas
-        print(f"Seu saldo é: {saldo}")
-    elif opcao == 4:
-        print("Obrigado por utilizar!")
-        estado = False
-    else:
-        print("Opção inválida!")
+    opcao = input("Escolha uma opção: ")
